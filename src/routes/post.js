@@ -11,6 +11,7 @@ route.post(
 );
 
 route.get('/', auth.authToken, postController.getAllPosts);
+route.delete('/:id', auth.authToken, postController.deletePost);
 route.get('/:id', auth.authToken, postController.getPostById);
 route.put(
   '/:id', 
