@@ -10,6 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'users',
     underscored: true,
   });
-  //fazer o associate com blogposts hasmany;
+  User.associate = (models) => {
+    User.hasMany = (models.BlogPost, {
+      foreignKey: 'userId',
+      as: 'posts',
+    });
+  };
   return User;
 };

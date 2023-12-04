@@ -6,6 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
     tableName: 'categories',
   });
-  //fazer o associate com postcategory hasmany;
+  Category.associate = (models) => {
+    Category.hasMany = (models.PostCategory, {
+      foreignKey: 'categoryId',
+      as: 'category',
+    })
+  };
   return Category;
 };
