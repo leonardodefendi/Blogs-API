@@ -9,4 +9,6 @@ route.post(
   postController.createNewPost,
 );
 
+route.get('/', auth.authToken, postController.getAllPosts);
+
 module.exports = route;
