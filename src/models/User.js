@@ -10,6 +10,6 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'users',
     underscored: true,
   });
-  // fazer o associate com blogpost ainda
+  //fazer o associate com blogposts hasmany;
   return User;
 };
