@@ -11,5 +11,6 @@ route.post(
 );
 
 route.get('/', auth.authToken, postController.getAllPosts);
+route.get('/:id', auth.authToken, postController.getPostById);
 
 module.exports = route;
