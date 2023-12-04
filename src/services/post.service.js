@@ -41,5 +41,13 @@ const getPostById = async (id) => {
   if (!posts) return { status: 404, data: { message: 'Post does not exist' } };
   return { status: 200, data: posts };
 };
+const updatedPost = async ({ userId, id, title, content }) => {
+  const post = await getPostById(id);
+  if (post.data.message) return post;
+  if (post.data.user.id !== userId) return { status: 401, data: { message: 'Unauthorized user' } };
+  await BlogPost.update({ title, content }, { where: { id } });
+  const newPost = await getPostById(id);
+  return newPost;
+};
 
-module.exports = { createNewPost, getAllPosts, getPostById };
+module.exports = { createNewPost, getAllPosts, getPostById, updatedPost };
