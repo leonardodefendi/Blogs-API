@@ -5,7 +5,8 @@ const { postController } = require('../controller');
 route.post(
   '/', 
   auth.authToken,
-  PostCategoryMiddleware.validateCategories, 
+  PostCategoryMiddleware.validateCategories,
+  PostCategoryMiddleware.verifyCategoryExist,
   postController.createNewPost,
 );
 
