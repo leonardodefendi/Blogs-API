@@ -1,4 +1,4 @@
-const { postService } = require('../services');
+const { postService, searchSerivce } = require('../services');
 
 const createNewPost = async (req, res) => {
   const { title, content, categoryIds } = req.body;
@@ -33,10 +33,19 @@ const deletePost = async (req, res) => {
   return res.sendStatus(status);
 };
 
+const searchPost = async (req, res) => {
+  const { q } = req.query;
+  const post = await searchSerivce.searchPostParam(q);
+  console.log(post);
+  console.log(q);
+  return res.status(200).json(post);
+};
+
 module.exports = {
   createNewPost,
   getAllPosts,
   getPostById,
   updatePost,
   deletePost,
+  searchPost,
 };

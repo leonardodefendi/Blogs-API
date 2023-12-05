@@ -9,8 +9,8 @@ route.post(
   PostCategoryMiddleware.verifyCategoryExist,
   postController.createNewPost,
 );
-
 route.get('/', auth.authToken, postController.getAllPosts);
+route.get('/search', auth.authToken, postController.searchPost);
 route.delete('/:id', auth.authToken, postController.deletePost);
 route.get('/:id', auth.authToken, postController.getPostById);
 route.put(
