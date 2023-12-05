@@ -15,7 +15,7 @@ const searchPostParam = async (param) => {
     },
     ],
   });
-  return posts;
+  return { status: 200, data: posts };
 };
 
 module.exports = {

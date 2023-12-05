@@ -35,10 +35,8 @@ const deletePost = async (req, res) => {
 
 const searchPost = async (req, res) => {
   const { q } = req.query;
-  const post = await searchSerivce.searchPostParam(q);
-  console.log(post);
-  console.log(q);
-  return res.status(200).json(post);
+  const { status, data } = await searchSerivce.searchPostParam(q);
+  return res.status(status).json(data);
 };
 
 module.exports = {
